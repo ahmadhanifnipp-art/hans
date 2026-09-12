@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Gantengku ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 45px 30px;
+            border-radius: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: muncul 1.5s ease;
+        }
+
+        .heart {
+            font-size: 70px;
+            animation: detak 1s infinite;
+        }
+
+        h1 {
+            color: #ff4f70;
+            margin: 20px 0;
+            font-size: 32px;
+        }
+
+        p {
+            color: #555;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: #ff4f70;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: #ff4f70;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #ff3158;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            animation: terbang 6s linear infinite;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes detak {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes terbang {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heart">❤️</div>
+
+        <h1>Hallo gantengku 🥰</h1>
+
+        <p>
+            Semangat yaa kerjanyaaa! 💪🏻❤️
+            <br>
+            Jangan menyerahhhh!
+            <br><br>
+            Kamu kan udah tidur
+            <span class="highlight">15 jam</span> 😭😂
+            <br><br>
+            Jadi sekarang waktunya
+            <span class="highlight">semangat kerja!</span> 💕
+        </p>
+
+        <button onclick="surprise()">
+            Klik kalau kamu sayang aku ❤️
+        </button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+
+        function surprise() {
+            document.getElementById("message").innerHTML =
+                "<br>Hehehe ketahuan sayang aku 😚❤️<br>Semangat ya ma bunny! Aku sayang kamu! 🥰";
+
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+
+                heart.classList.add("floating-heart");
+                heart.innerHTML = "❤️";
+
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDelay = Math.random() * 3 + "s";
+                heart.style.fontSize =
+                    (Math.random() * 25 + 15) + "px";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
